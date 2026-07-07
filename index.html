@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<!--
+  ═══════════════════════════════════════════════════════════════════
+  MICHAŁ MALINOWSKI — PORTFOLIO
+  ═══════════════════════════════════════════════════════════════════
+  WHERE EVERYTHING LIVES:
+
+    index.html      → this file: the page skeleton (rarely touched)
+    js/data.js      → ✏️ ALL your content — edit THIS file
+    css/styles.css  → colors, fonts, spacing, layout
+    js/main.js      → builds the page from data.js
+    js/widgets.js   → live GitHub graph + LeetCode stats
+
+  TO EDIT THE SITE: open js/data.js and change the text there.
+  See README.md for details and deployment instructions.
+  ═══════════════════════════════════════════════════════════════════
+-->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Michał Malinowski — Data Scientist</title>
+<meta name="description" content="Michał Malinowski — Data Scientist based in Gdańsk. Data Engineering student at Gdańsk University of Technology, currently at Ergo Hestia. Python, SQL, Databricks, Power BI.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%230A0E16'/><text x='50' y='68' font-size='52' font-family='monospace' fill='%23E5A84B' text-anchor='middle'>M</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<noscript>
+  This site needs JavaScript to render. You can still reach me at
+  <a href="mailto:michalmalinowski29@gmail.com" style="color:#E5A84B">michalmalinowski29@gmail.com</a>.
+</noscript>
+
+<div id="app"></div>
+
+<!-- Order matters: content first, then the renderer, then live widgets -->
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
+<script src="js/widgets.js"></script>
+</body>
+</html>
