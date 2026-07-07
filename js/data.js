@@ -152,7 +152,7 @@ WHERE city = 'Gdańsk'
   activity: {
     heading: "Always shipping",
     githubUsername:   "MichalM31252",
-    leetcodeUsername: "",              // ← e.g. "michalmalinowski29"
+    leetcodeUsername: "MM02",              // ← e.g. "michalmalinowski29"
   },
 
   /* ── Skills ───────────────────────────────────────────────── */
