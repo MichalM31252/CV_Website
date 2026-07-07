@@ -201,7 +201,7 @@
   .stat-chips{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:18px;min-height:27px}
   .chip{font-family:var(--font-mono);font-size:.72rem;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:4px 12px}
   .chip b{color:var(--text);font-weight:500}
-  .cal-scroll{overflow-x:auto;padding-bottom:6px}
+  .cal-scroll{overflow:hidden;padding-bottom:6px}
   .cal{display:grid;grid-auto-flow:column;grid-template-rows:repeat(7,10px);gap:3px;width:max-content;min-height:88px}
   .cal i,.cal-legend i{width:10px;height:10px;border-radius:2px;background:var(--line);display:inline-block}
   .cal i.l1,.cal-legend i.l1{background:rgba(229,168,75,.28)}

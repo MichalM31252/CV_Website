@@ -26,9 +26,25 @@
     .then(r => r.ok ? r.json() : Promise.reject())
     .then(data => {
       const days = data.contributions;
-      document.getElementById("ghCal").innerHTML = days.map(d =>
-        `<i class="${d.level ? "l" + d.level : ""}" title="${d.date}: ${d.count} contribution${d.count === 1 ? "" : "s"}"></i>`
-      ).join("");
+      const cal = document.getElementById("ghCal");
+
+      /* Render only the newest columns that fit the panel — no scrollbar.
+         Cells are 10px wide with a 3px gap (13px per week column), and the
+         grid has 7 rows, so we keep the last N*7 days that fit the width. */
+      function drawCal() {
+        const avail = cal.parentElement.clientWidth;
+        const cols = Math.max(1, Math.floor((avail + 3) / 13));
+        cal.innerHTML = days.slice(-cols * 7).map(d =>
+          `<i class="${d.level ? "l" + d.level : ""}" title="${d.date}: ${d.count} contribution${d.count === 1 ? "" : "s"}"></i>`
+        ).join("");
+      }
+      drawCal();
+      let resizeTimer;
+      window.addEventListener("resize", () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(drawCal, 150);
+      });
+
       const total = days.reduce((s, d) => s + d.count, 0);
       document.getElementById("ghCaption").innerHTML =
         `<span><b>${total.toLocaleString("en")}</b> contributions in the last year</span>` +
