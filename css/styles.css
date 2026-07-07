@@ -204,6 +204,7 @@
   .cal-scroll{overflow:hidden;padding-bottom:6px}
   .cal{display:grid;grid-auto-flow:column;grid-template-rows:repeat(7,10px);gap:3px;width:max-content;min-height:88px}
   .cal i,.cal-legend i{width:10px;height:10px;border-radius:2px;background:var(--line);display:inline-block}
+  .cal i.cal-pad{background:transparent}
   .cal i.l1,.cal-legend i.l1{background:rgba(229,168,75,.28)}
   .cal i.l2,.cal-legend i.l2{background:rgba(229,168,75,.5)}
   .cal i.l3,.cal-legend i.l3{background:rgba(229,168,75,.75)}

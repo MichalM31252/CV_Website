@@ -28,14 +28,26 @@
       const days = data.contributions;
       const cal = document.getElementById("ghCal");
 
-      /* Render only the newest columns that fit the panel — no scrollbar.
-         Cells are 10px wide with a 3px gap (13px per week column), and the
-         grid has 7 rows, so we keep the last N*7 days that fit the width. */
+      /* Build a weekday-aligned cell list: every group of 7 is one week
+         (row 0 = Sunday … row 6 = Saturday), matching GitHub. Pad the start
+         so day 0 lands in its weekday row, and pad the end so the current
+         (partial) week's future days render as blank cells — which places
+         today in its true weekday row rather than at the column bottom. */
+      const weekday = s => new Date(s + "T00:00:00").getDay();
+      const cells = [];
+      for (let i = 0, lead = weekday(days[0].date); i < lead; i++) cells.push(null);
+      days.forEach(d => cells.push(d));
+      while (cells.length % 7 !== 0) cells.push(null);
+
+      /* Render only the newest week-columns that fit the panel — no scrollbar.
+         Cells are 10px wide with a 3px gap (13px per week column). */
       function drawCal() {
         const avail = cal.parentElement.clientWidth;
         const cols = Math.max(1, Math.floor((avail + 3) / 13));
-        cal.innerHTML = days.slice(-cols * 7).map(d =>
-          `<i class="${d.level ? "l" + d.level : ""}" title="${d.date}: ${d.count} contribution${d.count === 1 ? "" : "s"}"></i>`
+        cal.innerHTML = cells.slice(-cols * 7).map(d =>
+          d
+            ? `<i class="${d.level ? "l" + d.level : ""}" title="${d.date}: ${d.count} contribution${d.count === 1 ? "" : "s"}"></i>`
+            : `<i class="cal-pad" aria-hidden="true"></i>`
         ).join("");
       }
       drawCal();
