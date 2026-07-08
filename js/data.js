@@ -1,47 +1,42 @@
-/* ═════════════════════════════════════════════════════════════════
-   ✏️  EDIT YOUR CONTENT HERE — everything on the page comes from
-       this one block. The design code further down never needs
-       to be touched.
-
-   Tips:
-   • Text between "quotes" is what shows on the page.
-   • In paragraph fields you can use <strong>...</strong> to make
-     words stand out in white.
-   • To remove something optional (like a project link), set it
-     to null. To add an item, copy an existing { ... } block,
-     paste it after a comma, and edit it.
-   ═════════════════════════════════════════════════════════════════ */
-const PORTFOLIO = {
-
-  /* ── Basics ───────────────────────────────────────────────── */
+/* All site content lives here. The components in js/components/ render it. */
+export const portfolio = {
   name: {
     first: "Michał",
-    last:  "Malinowski",
+    last: "Malinowski",
+    handle: "michal.malinowski", // ASCII version used in the terminal-style logo
   },
-  jobTitle: "Data Scientist",           // shows in the browser tab + hero eyebrow
+  jobTitle: "Data Scientist",
   location: "Gdańsk, Poland",
 
   contact: {
-    email:        "michalmalinowski29@gmail.com",
-    phone:        "+48512250794",       // used for the click-to-call link
-    phoneDisplay: "+48 512 250 794",    // how the number is shown
-    github:   "https://github.com/MichalM31252",
+    email: "michalmalinowski29@gmail.com",
+    phone: "+48512250794",
+    phoneDisplay: "+48 512 250 794",
+    github: "https://github.com/MichalM31252",
     linkedin: "https://www.linkedin.com/in/michalmalinowski29/",
   },
 
-  /* ── Hero (top of the page) ───────────────────────────────── */
+  nav: [
+    { id: "about", label: "About" },
+    { id: "experience", label: "Experience" },
+    { id: "projects", label: "Projects" },
+    { id: "activity", label: "Activity" },
+    { id: "skills", label: "Skills" },
+    { id: "education", label: "Education" },
+    { id: "contact", label: "Contact" },
+  ],
+
   hero: {
-    // Short intro under your name. <strong> makes text white.
+    // <strong> renders in white.
     lede: `I turn raw, messy data into decisions — building <strong>pipelines,
            models, and BI dashboards</strong> as a Data Scientist at Ergo Hestia
            while completing a Data Engineering degree at Gdańsk University of
            Technology.`,
-    primaryButton: "Get in touch",      // the amber button (opens your email)
+    primaryButton: "Get in touch",
   },
 
-  /* ── The animated SQL card in the hero ────────────────────── */
-  // Write any SQL you like — keywords and 'quoted strings' are
-  // highlighted automatically while it types itself out.
+  // The animated SQL console in the hero. Keywords and 'quoted strings'
+  // are highlighted automatically while the query types itself out.
   queryCard: {
     filename: "candidate.sql",
     query: `SELECT role, company, focus
@@ -49,11 +44,10 @@ FROM data_scientists
 WHERE city = 'Gdańsk'
   AND open_to = 'new challenges';`,
     resultColumns: ["role", "company", "focus"],
-    resultRow:     ["Data Scientist", "Ergo Hestia", "ML · BI · Pipelines"],
-    resultMeta:    "<em>1 row</em> returned in 0.042 s",
+    resultRow: ["Data Scientist", "Ergo Hestia", "ML · BI · Pipelines"],
+    resultMeta: "<em>1 row</em> returned in 0.042 s",
   },
 
-  /* ── About section ────────────────────────────────────────── */
   about: {
     heading: "A data engineer's rigor, an analyst's curiosity",
     paragraphs: [
@@ -68,26 +62,23 @@ WHERE city = 'Gdańsk'
        working in a team, carry out my duties diligently — and I'm always eager
        to take on a new challenge.`,
     ],
-    // The little fact card on the right.
     facts: [
-      { label: "location",     value: "Gdańsk, Poland" },
+      { label: "location", value: "Gdańsk, Poland" },
       { label: "currently_at", value: "Ergo Hestia" },
-      { label: "studying",     value: "Data Engineering, GUT" },
-      { label: "core_stack",   value: "Python · SQL · Power BI" },
-      { label: "status",       value: "Open to opportunities" },
+      { label: "studying", value: "Data Engineering, GUT" },
+      { label: "core_stack", value: "Python · SQL · Power BI" },
+      { label: "status", value: "Open to opportunities" },
     ],
   },
 
-  /* ── Experience ───────────────────────────────────────────── */
-  // Newest job first. To add one, copy a whole { ... } block.
   experience: {
     heading: "Where I've worked",
     jobs: [
       {
-        date:     "06.2025 — Present",
-        role:     "Data Scientist (Internship)",
-        company:  "Ergo Hestia",
-        companyUrl: "https://www.ergohestia.pl",   // or null for no link
+        date: "06.2025 — Present",
+        role: "Data Scientist (Internship)",
+        company: "Ergo Hestia",
+        companyUrl: "https://www.ergohestia.pl",
         location: "Gdańsk",
         bullets: [
           "Apply advanced Python and its data-analysis ecosystem to large, real-world insurance datasets",
@@ -101,81 +92,81 @@ WHERE city = 'Gdańsk'
     ],
   },
 
-  /* ── Projects ─────────────────────────────────────────────── */
-  // url: null → the card has no link. Otherwise it opens the link.
   projects: {
     heading: "Selected work",
     items: [
       {
         name: "School Data Warehouse",
-        url:  "https://github.com/MichalM31252/School-Data-Warehouse",
+        url: "https://github.com/MichalM31252/School-Data-Warehouse",
         desc: "A functional data warehouse designed end-to-end for the needs of a school — from schema design to loading and querying, built in T-SQL.",
         tags: ["T-SQL", "Data Warehousing", "ETL"],
       },
       {
         name: "Polish Speech Recognizer",
-        url:  "https://github.com/MichalM31252/Polish-Speech-Recognizer",
+        url: "https://github.com/MichalM31252/Polish-Speech-Recognizer",
         desc: "An artificial neural network trained to recognize spoken Polish sentences — deep learning applied to a language with famously hard phonetics.",
         tags: ["Python", "Neural Networks", "Speech"],
       },
       {
         name: "Steam Inventory Advertiser",
-        url:  "https://github.com/MichalM31252/Counter-Strike-Inventory-Advertiser",
+        url: "https://github.com/MichalM31252/Counter-Strike-Inventory-Advertiser",
         desc: "An automated, configurable tool that promotes Counter-Strike items across Reddit and Steam — multi-platform scraping and posting at scale.",
         tags: ["Python", "Selenium", "MySQL"],
       },
       {
         name: "Red Cross Document Scanner",
-        url:  null,
+        url: null,
         desc: "A document scanner built for the Polish Pomeranian Red Cross, digitizing paperwork for a nonprofit that runs on volunteers' time.",
         tags: ["Python", "OCR", "Pro bono"],
       },
       {
         name: "Wulkanizacja Website",
-        url:  "https://github.com/MichalM31252/Wulkanizacja-Website",
+        url: "https://github.com/MichalM31252/Wulkanizacja-Website",
         desc: "A fully responsive website built from scratch for a paying client — my first freelance project, delivered polished and on time.",
         tags: ["HTML/CSS/JS", "Bulma", "Freelance"],
       },
       {
         name: "More on GitHub",
-        url:  "https://github.com/MichalM31252",
+        url: "https://github.com/MichalM31252",
         desc: "Twelve public repositories and counting — experiments, coursework, and tools, all in the open.",
         tags: ["github.com/MichalM31252"],
       },
     ],
   },
 
-  /* ── Live activity widgets (GitHub graph + LeetCode) ─────── */
-  // The GitHub contribution graph loads automatically from your
-  // username. For LeetCode, put your username between the quotes —
-  // if it's left empty, the card shows a reminder instead.
   activity: {
     heading: "Always shipping",
-    githubUsername:   "MichalM31252",
-    leetcodeUsername: "MM02",              // ← e.g. "michalmalinowski29"
+    githubUsername: "MichalM31252",
+    leetcodeUsername: "MM02",
   },
 
-  /* ── Skills ───────────────────────────────────────────────── */
   skills: {
     heading: "What I work with",
     groups: [
-      { title: "languages & libraries",
-        items: ["Python", "Pandas", "Spark", "SQL / PL/SQL / T-SQL"] },
-      { title: "data platform",
-        items: ["Databricks", "Azure Data Factory", "Databases & Data Warehouses", "Big Data processing"] },
-      { title: "analytics & ML",
-        items: ["Machine Learning", "Power BI", "Data visualization", "Exploratory data analysis"] },
-      { title: "ways of working",
-        items: ["Git & GitHub", "Jira / Atlassian", "Clear communication", "Independent & team work"] },
+      {
+        title: "languages & libraries",
+        items: ["Python", "Pandas", "Spark", "SQL / PL/SQL / T-SQL"],
+      },
+      {
+        title: "data platform",
+        items: ["Databricks", "Azure Data Factory", "Databases & Data Warehouses", "Big Data processing"],
+      },
+      {
+        title: "analytics & ML",
+        items: ["Machine Learning", "Power BI", "Data visualization", "Exploratory data analysis"],
+      },
+      {
+        title: "ways of working",
+        items: ["Git & GitHub", "Jira / Atlassian", "Clear communication", "Independent & team work"],
+      },
     ],
   },
 
-  /* ── Education & certificates ─────────────────────────────── */
   education: {
     heading: "Education & certificates",
     schools: [
       {
-        date:   "2023 — Present",
+        date: "2023 — Present",
         degree: "BSc, Data Engineering",
         school: "Gdańsk University of Technology",
         bullets: [
@@ -185,7 +176,7 @@ WHERE city = 'Gdańsk'
         ],
       },
       {
-        date:   "2019 — 2023",
+        date: "2019 — 2023",
         degree: "Technician Programmer",
         school: "Technical Secondary School of Electrical Engineering, Białystok",
         bullets: [
@@ -195,35 +186,19 @@ WHERE city = 'Gdańsk'
       },
     ],
     certificates: [
-      { name: "Data Analyst in Power BI",              org: "Databricks",     date: "03.2026" },
-      { name: "Fundamentals of Deep Learning",         org: "NVIDIA",         date: "09.2024" },
-      { name: "Technician Programmer INF.03 / INF.04", org: "ZSE Białystok",  date: "07.2023" },
+      { name: "Data Analyst in Power BI", org: "Databricks", date: "03.2026" },
+      { name: "Fundamentals of Deep Learning", org: "NVIDIA", date: "09.2024" },
+      { name: "Technician Programmer INF.03 / INF.04", org: "ZSE Białystok", date: "07.2023" },
     ],
   },
 
-  /* ── Contact section (bottom of page) ─────────────────────── */
   contactSection: {
     heading: "Let's talk data",
     blurb: `Whether it's an internship, a junior data role, or an interesting
             problem with a large dataset behind it — my inbox is open.`,
   },
 
-  /* ── Footer ───────────────────────────────────────────────── */
   footer: {
-    rightNote: "designed & built with care",   // small text on the right
+    rightNote: "designed & built with care",
   },
-
-  /* ── Navigation labels (rename if you like) ───────────────── */
-  nav: [
-    { id: "about",      label: "About" },
-    { id: "experience", label: "Experience" },
-    { id: "projects",   label: "Projects" },
-    { id: "activity",   label: "Activity" },
-    { id: "skills",     label: "Skills" },
-    { id: "education",  label: "Education" },
-    { id: "contact",    label: "Contact" },
-  ],
 };
-/* ═════════════════ END OF EDITABLE CONTENT ═══════════════════
-   The design lives in css/styles.css, and the code that builds the
-   page from this data lives in js/main.js and js/widgets.js. */
