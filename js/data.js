@@ -187,8 +187,8 @@ WHERE city = 'Gdańsk'
     ],
     certificates: [
       { name: "Big Data with PySpark", org: "DataCamp", date: "06.2026" },
-      { name: "Data Analyst in Power BI", org: "Databricks", date: "03.2026" },
-      { name: "AWS Cloud Practitioner (CLF-C02)", org: "AWS", date: "03.2026" },
+      { name: "Data Analyst in Power BI", org: "DataCamp", date: "03.2026" },
+      { name: "Databricks Fundamentals", org: "Databricks", date: "01.2025" },
       { name: "Fundamentals of Deep Learning", org: "NVIDIA", date: "09.2024" },
       { name: "Technician Programmer INF.03 / INF.04", org: "ZSE Białystok", date: "07.2023" },
     ],
