@@ -39,7 +39,10 @@ export const portfolio = {
   // are highlighted automatically while the query types itself out.
   queryCard: {
     filename: "candidate.sql",
-    query: `SELECT role, company, focus FROM data_scientists WHERE city = 'Gdańsk' AND open_to = 'new challenges';`,
+    query: `SELECT role, company, focus
+FROM data_scientists
+WHERE city = 'Gdańsk'
+  AND open_to = 'new challenges';`,
     resultColumns: ["role", "company", "focus"],
     resultRow: ["Data Scientist", "Ergo Hestia", "ML · BI · Pipelines"],
     resultMeta: "<em>1 row</em> returned in 0.042 s",
