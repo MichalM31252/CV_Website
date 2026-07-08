@@ -189,7 +189,6 @@ WHERE city = 'Gdańsk'
       { name: "Big Data with PySpark", org: "DataCamp", date: "06.2026" },
       { name: "Data Analyst in Power BI", org: "Databricks", date: "03.2026" },
       { name: "AWS Cloud Practitioner (CLF-C02)", org: "AWS", date: "03.2026" },
-      { name: "Python Data Fundamentals", org: "DataCamp", date: "10.2024" },
       { name: "Fundamentals of Deep Learning", org: "NVIDIA", date: "09.2024" },
       { name: "Technician Programmer INF.03 / INF.04", org: "ZSE Białystok", date: "07.2023" },
     ],
