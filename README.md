@@ -1,50 +1,42 @@
 # Portfolio — Michał Malinowski
 
-Personal portfolio / CV site: a single-page app built with **Vue 3** and plain CSS, served as static files with no build step.
+Personal portfolio / CV site, designed as **"The Actuarial Ledger"** — a data
+scientist's CV set like a beautifully typeset report: figure and table labels,
+dot-leader ledger rows, tabular numerals, and the classic red margin rule of
+ledger paper. Plain HTML, CSS, and JavaScript — no framework, no build step.
 
 ## Stack
 
-- [Vue 3](https://vuejs.org/) loaded via an import map from a CDN — no Node.js, no bundler, nothing to install
-- Vanilla CSS with custom properties (`css/styles.css`)
-- Live data fetched client-side: GitHub REST API, [github-contributions-api](https://github.com/grubersjoe/github-contributions-api), and LeetCode community APIs
+- Static HTML + vanilla CSS custom properties + vanilla JS
+- Fonts from Google Fonts: [Archivo](https://fonts.google.com/specimen/Archivo)
+  (variable width, display), [Spectral](https://fonts.google.com/specimen/Spectral)
+  (body), [Spline Sans Mono](https://fonts.google.com/specimen/Spline+Sans+Mono)
+  (labels & data)
+- Light and dark themes via CSS tokens; follows the OS preference, with a
+  manual toggle persisted in `localStorage`
+- `fig. 01` — career trajectory chart drawn on a `<canvas>` at load
+- `fig. 02` — live GitHub contribution calendar fetched client-side from
+  [github-contributions-api](https://github.com/grubersjoe/github-contributions-api)
+  (the section hides itself if the API is unreachable)
 
 ## Project structure
 
 ```
-index.html               Page shell: meta tags, fonts, import map, #app mount point
-css/styles.css           All styling
-js/
-  app.js                 Creates the Vue app and mounts it
-  data.js                All site content — edit this file to change any text
-  icons.js               Inline SVG icon components
-  reveal.js              v-reveal directive (scroll-into-view fade-in)
-  components/
-    App.js               Root component; composes the sections
-    SiteNav.js           Sticky nav with mobile menu
-    HeroSection.js       Intro, action buttons, SQL query card
-    QueryCard.js         Animated typed-SQL console
-    AboutSection.js      Bio paragraphs + fact card
-    ExperienceSection.js Job timeline
-    ProjectsSection.js   Project card grid
-    ActivitySection.js   Live-data panels wrapper
-    GithubPanel.js       Contribution calendar + profile chips
-    LeetcodePanel.js     Solved-problem stats
-    SkillsSection.js     Skill group grid
-    EducationSection.js  Schools + certificates
-    ContactSection.js    Contact call-to-action
-    SiteFooter.js        Footer
-    PageSection.js       Shared section shell (label + heading)
-    TimelineItem.js      Shared dated timeline entry
-    TagList.js           Shared tag pills
+index.html        All content and markup
+css/styles.css    All styling (design tokens at the top)
+js/main.js        Theme toggle, scroll reveal, trajectory chart, GitHub heatmap
 ```
 
 ## Editing content
 
-All copy — names, jobs, projects, skills, links — lives in [`js/data.js`](js/data.js). Edit that file; the components render whatever it contains.
+All copy lives directly in [`index.html`](index.html). The palette and type
+scale live in the `:root` token block at the top of
+[`css/styles.css`](css/styles.css). The trajectory chart's milestones are the
+`MILESTONES` array at the top of [`js/main.js`](js/main.js).
 
 ## Running locally
 
-ES modules require an HTTP server (opening `index.html` directly from disk won't work):
+Any static server works (the GitHub heatmap fetch needs `http://`, not `file://`):
 
 ```sh
 python -m http.server 8000
