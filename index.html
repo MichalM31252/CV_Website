@@ -10,31 +10,314 @@
     />
     <link
       rel="icon"
-      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%230A0E16'/><text x='50' y='68' font-size='52' font-family='monospace' fill='%23E5A84B' text-anchor='middle'>M</text></svg>"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%230B0E14'/><circle cx='50' cy='24' r='7' fill='%23C9834E'/><circle cx='50' cy='50' r='7' fill='%23A9BDD3'/><circle cx='50' cy='76' r='7' fill='%23E8B64C'/></svg>"
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Fragment+Mono&family=Schibsted+Grotesk:wght@400;500;700&family=Unbounded:wght@500;600;700;800&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="css/styles.css" />
-    <script type="importmap">
-      {
-        "imports": {
-          "vue": "https://cdn.jsdelivr.net/npm/vue@3.5.13/dist/vue.esm-browser.prod.js"
-        }
-      }
-    </script>
   </head>
   <body>
     <noscript>
-      This site needs JavaScript to render. You can still reach me at
-      <a href="mailto:michalmalinowski29@gmail.com" style="color: #e5a84b">michalmalinowski29@gmail.com</a>.
+      This site is animated with JavaScript, but every word is in the HTML.
+      Reach me at <a href="mailto:michalmalinowski29@gmail.com">michalmalinowski29@gmail.com</a>.
     </noscript>
 
-    <div id="app"></div>
+    <a class="skip-link" href="#about">Skip to content</a>
 
-    <script type="module" src="js/app.js"></script>
+    <header class="nav">
+      <div class="nav__inner">
+        <a class="nav__brand" href="#top">
+          <span class="nav__medallions" aria-hidden="true"><i></i><i></i><i></i></span>
+          m.malinowski
+        </a>
+        <nav class="nav__links" aria-label="Pipeline stages">
+          <a href="#about">ingest</a>
+          <a href="#experience">transform</a>
+          <a href="#skills">enrich</a>
+          <a href="#projects">serve</a>
+          <a href="#activity">monitor</a>
+          <a href="#contact" class="nav__cta">sink →</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="top">
+      <!-- ============ HERO / SOURCE ============ -->
+      <section class="hero">
+        <canvas id="flow" aria-hidden="true"></canvas>
+        <div class="hero__inner">
+          <p class="hero__boot mono">// source: gdańsk_pl · streaming since 2019 · schema: on_read</p>
+          <h1 class="hero__name">
+            <span class="decode" data-text="MICHAŁ">MICHAŁ</span>
+            <span class="decode decode--gold" data-text="MALINOWSKI">MALINOWSKI</span>
+          </h1>
+          <p class="hero__role mono">
+            <span class="pulse-dot" aria-hidden="true"></span>
+            data scientist @ <a href="https://www.ergohestia.pl" target="_blank" rel="noopener">ergo hestia</a>
+            · open to opportunities
+          </p>
+          <p class="hero__lede">
+            I move raw, messy data through <strong>pipelines, models, and
+            BI&nbsp;dashboards</strong> until it makes decisions — at one of
+            Poland's largest insurers, while finishing a Data&nbsp;Engineering
+            degree at Gdańsk&nbsp;University&nbsp;of&nbsp;Technology.
+          </p>
+          <div class="hero__actions">
+            <a class="btn btn--gold" href="#contact">Get in touch</a>
+            <a class="btn" href="https://github.com/MichalM31252" target="_blank" rel="noopener">GitHub ↗</a>
+          </div>
+          <dl class="hero__stats">
+            <div class="stat"><dt class="mono">yrs building</dt><dd><span class="count" data-to="6">0</span>+</dd></div>
+            <div class="stat"><dt class="mono">certificates</dt><dd><span class="count" data-to="5">0</span></dd></div>
+            <div class="stat"><dt class="mono">public repos</dt><dd><span class="count" data-to="12" id="stat-repos">0</span></dd></div>
+            <div class="stat" id="stat-contrib-wrap" hidden><dt class="mono">commits / 12 mo</dt><dd><span class="count" data-to="0" id="stat-contrib">0</span></dd></div>
+          </dl>
+        </div>
+        <a class="hero__cue mono" href="#about" aria-hidden="true" tabindex="-1">▼ ingest</a>
+      </section>
+
+      <!-- ============ PIPELINE STAGES ============ -->
+      <div class="stages">
+        <div class="spine" aria-hidden="true">
+          <div class="spine__fill" id="spine-fill"><i></i><i></i><i></i></div>
+        </div>
+
+        <!-- stage 01 · bronze · ingest -->
+        <section id="about" class="stage" data-accent="bronze">
+          <header class="stage__head reveal">
+            <span class="stage__node" aria-hidden="true"></span>
+            <p class="stage__tag mono">stage_01 · bronze · ingest</p>
+            <h2 class="stage__title">Raw profile</h2>
+          </header>
+          <div class="stage__body stage__body--split">
+            <div class="prose reveal">
+              <p>
+                I'm a 6th-semester <strong>Data Engineering</strong> student at
+                Gdańsk University of Technology and a Data Scientist at
+                <strong>Ergo Hestia</strong>, one of Poland's largest insurers.
+                My work sits where engineering meets analysis: designing and
+                optimizing databases, processing large datasets, and turning
+                them into models and dashboards that people actually use.
+              </p>
+              <p>
+                I'm particularly interested in <strong>data science, database
+                design optimization, and Business Intelligence</strong>. I learn
+                quickly, enjoy working in a team, carry out my duties diligently
+                — and I'm always eager to take on a new challenge.
+              </p>
+            </div>
+            <div class="schema-card reveal">
+              <p class="schema-card__bar mono"><i></i><i></i><i></i> profile.yaml</p>
+              <pre class="mono"><code><span class="k">location:</span>      Gdańsk, Poland
+<span class="k">currently_at:</span>  Ergo Hestia
+<span class="k">studying:</span>      Data Engineering @ GUT
+<span class="k">core_stack:</span>    [Python, SQL, Power BI]
+<span class="k">status:</span>        <span class="v-live">open_to_opportunities</span></code></pre>
+            </div>
+          </div>
+        </section>
+
+        <!-- stage 02 · silver · transform -->
+        <section id="experience" class="stage" data-accent="silver">
+          <header class="stage__head reveal">
+            <span class="stage__node" aria-hidden="true"></span>
+            <p class="stage__tag mono">stage_02 · silver · transform</p>
+            <h2 class="stage__title">Where I've worked</h2>
+          </header>
+          <div class="stage__body">
+            <article class="job reveal">
+              <div class="job__meta mono">
+                <span class="job__date">06.2025 — present</span>
+                <span class="job__loc">gdańsk</span>
+              </div>
+              <div class="job__main">
+                <h3 class="job__role">
+                  Data Scientist <em>(internship)</em> ·
+                  <a href="https://www.ergohestia.pl" target="_blank" rel="noopener">Ergo Hestia</a>
+                </h3>
+                <ul class="job__list" data-stagger>
+                  <li>Apply advanced Python and its data-analysis ecosystem to large, real-world insurance datasets</li>
+                  <li>Build and evaluate machine learning models using industry-standard modelling algorithms</li>
+                  <li>Develop data workflows with Databricks, Azure Data Factory, and GitHub</li>
+                  <li>Create reports and dashboards in Power BI and write production SQL queries</li>
+                  <li>Work with Microsoft Copilot Studio and collaborate through Jira and the Atlassian suite</li>
+                </ul>
+                <ul class="chips" data-stagger>
+                  <li>Python</li><li>Machine Learning</li><li>Databricks</li>
+                  <li>Azure Data Factory</li><li>Power BI</li><li>SQL</li>
+                </ul>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <!-- stage 03 · silver · enrich -->
+        <section id="skills" class="stage stage--bleed" data-accent="silver">
+          <header class="stage__head reveal">
+            <span class="stage__node" aria-hidden="true"></span>
+            <p class="stage__tag mono">stage_03 · silver · enrich</p>
+            <h2 class="stage__title">What flows through my hands</h2>
+          </header>
+          <div class="marquees reveal" aria-label="Tools and skills">
+            <div class="marquee">
+              <div class="marquee__track">
+                <span>Python</span><span>Pandas</span><span>Spark</span><span>SQL</span><span>PL/SQL</span><span>T-SQL</span><span>Databricks</span><span>Azure Data Factory</span><span>Power BI</span>
+                <span aria-hidden="true">Python</span><span aria-hidden="true">Pandas</span><span aria-hidden="true">Spark</span><span aria-hidden="true">SQL</span><span aria-hidden="true">PL/SQL</span><span aria-hidden="true">T-SQL</span><span aria-hidden="true">Databricks</span><span aria-hidden="true">Azure Data Factory</span><span aria-hidden="true">Power BI</span>
+              </div>
+            </div>
+            <div class="marquee marquee--reverse">
+              <div class="marquee__track">
+                <span>Machine Learning</span><span>ETL</span><span>Data Warehousing</span><span>Exploratory Analysis</span><span>Data Visualization</span><span>Big Data</span><span>Git &amp; GitHub</span><span>Jira</span><span>Copilot Studio</span>
+                <span aria-hidden="true">Machine Learning</span><span aria-hidden="true">ETL</span><span aria-hidden="true">Data Warehousing</span><span aria-hidden="true">Exploratory Analysis</span><span aria-hidden="true">Data Visualization</span><span aria-hidden="true">Big Data</span><span aria-hidden="true">Git &amp; GitHub</span><span aria-hidden="true">Jira</span><span aria-hidden="true">Copilot Studio</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- stage 04 · gold · serve -->
+        <section id="projects" class="stage" data-accent="gold">
+          <header class="stage__head reveal">
+            <span class="stage__node" aria-hidden="true"></span>
+            <p class="stage__tag mono">stage_04 · gold · serve</p>
+            <h2 class="stage__title">Selected work</h2>
+          </header>
+          <div class="stage__body">
+            <div class="cards" data-stagger>
+              <a class="card tilt" href="https://github.com/MichalM31252/School-Data-Warehouse" target="_blank" rel="noopener">
+                <p class="card__tag mono">T-SQL · warehousing · ETL</p>
+                <h3 class="card__name">School Data Warehouse</h3>
+                <p class="card__desc">A functional data warehouse designed end-to-end for the needs of a school — from schema design to loading and querying.</p>
+                <span class="card__go mono" aria-hidden="true">open ↗</span>
+              </a>
+              <a class="card tilt" href="https://github.com/MichalM31252/Polish-Speech-Recognizer" target="_blank" rel="noopener">
+                <p class="card__tag mono">python · neural networks</p>
+                <h3 class="card__name">Polish Speech Recognizer</h3>
+                <p class="card__desc">A neural network trained to recognize spoken Polish sentences — deep learning applied to famously hard phonetics.</p>
+                <span class="card__go mono" aria-hidden="true">open ↗</span>
+              </a>
+              <a class="card tilt" href="https://github.com/MichalM31252/Counter-Strike-Inventory-Advertiser" target="_blank" rel="noopener">
+                <p class="card__tag mono">python · selenium · mysql</p>
+                <h3 class="card__name">Steam Inventory Advertiser</h3>
+                <p class="card__desc">An automated, configurable tool that promotes Counter-Strike items across Reddit and Steam at scale.</p>
+                <span class="card__go mono" aria-hidden="true">open ↗</span>
+              </a>
+              <div class="card tilt">
+                <p class="card__tag mono">python · OCR · pro bono</p>
+                <h3 class="card__name">Red Cross Document Scanner</h3>
+                <p class="card__desc">A document scanner built for the Polish Pomeranian Red Cross, digitizing paperwork for a nonprofit that runs on volunteers' time.</p>
+              </div>
+              <a class="card tilt" href="https://github.com/MichalM31252/Wulkanizacja-Website" target="_blank" rel="noopener">
+                <p class="card__tag mono">html/css/js · freelance</p>
+                <h3 class="card__name">Wulkanizacja Website</h3>
+                <p class="card__desc">A fully responsive website built from scratch for a paying client — my first freelance project, delivered on time.</p>
+                <span class="card__go mono" aria-hidden="true">open ↗</span>
+              </a>
+              <a class="card tilt card--ghost" href="https://github.com/MichalM31252" target="_blank" rel="noopener">
+                <p class="card__tag mono">github.com/MichalM31252</p>
+                <h3 class="card__name">+ everything else</h3>
+                <p class="card__desc">Experiments, coursework, and tools — all in the open.</p>
+                <span class="card__go mono" aria-hidden="true">browse ↗</span>
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <!-- stage 05 · gold · monitor -->
+        <section id="activity" class="stage" data-accent="gold" hidden>
+          <header class="stage__head reveal">
+            <span class="stage__node" aria-hidden="true"></span>
+            <p class="stage__tag mono">stage_05 · gold · monitor</p>
+            <h2 class="stage__title">Always shipping</h2>
+          </header>
+          <div class="stage__body">
+            <div class="heat-wrap reveal">
+              <div class="heat-scroll">
+                <div id="heatmap" class="heatmap" role="img" aria-label="GitHub contribution calendar, last 12 months"></div>
+              </div>
+              <p class="heat-caption mono" id="heat-caption">github contributions · trailing 12 months</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- checkpoint · education -->
+        <section id="education" class="stage" data-accent="silver">
+          <header class="stage__head reveal">
+            <span class="stage__node" aria-hidden="true"></span>
+            <p class="stage__tag mono">checkpoint · schema history</p>
+            <h2 class="stage__title">Education &amp; certificates</h2>
+          </header>
+          <div class="stage__body">
+            <article class="job reveal">
+              <div class="job__meta mono"><span class="job__date">2023 — present</span></div>
+              <div class="job__main">
+                <h3 class="job__role">BSc, Data Engineering · Gdańsk University of Technology</h3>
+                <ul class="job__list" data-stagger>
+                  <li>Exploratory analysis of financial data</li>
+                  <li>Design and optimization of financial data analysis scripts in PL/SQL</li>
+                  <li>Big Data processing and integration of data from various sources</li>
+                </ul>
+              </div>
+            </article>
+            <article class="job reveal">
+              <div class="job__meta mono"><span class="job__date">2019 — 2023</span></div>
+              <div class="job__main">
+                <h3 class="job__role">Technician Programmer · Technical Secondary School of Electrical Engineering, Białystok</h3>
+                <ul class="job__list" data-stagger>
+                  <li>Creating and administering web applications</li>
+                  <li>Creating and administering databases</li>
+                </ul>
+              </div>
+            </article>
+            <ul class="certs reveal" data-stagger>
+              <li class="cert"><span class="cert__date mono">06.2026</span><span class="cert__name">Big Data with PySpark</span><span class="cert__org mono">DataCamp</span></li>
+              <li class="cert"><span class="cert__date mono">03.2026</span><span class="cert__name">Data Analyst in Power BI</span><span class="cert__org mono">DataCamp</span></li>
+              <li class="cert"><span class="cert__date mono">01.2025</span><span class="cert__name">Databricks Fundamentals</span><span class="cert__org mono">Databricks</span></li>
+              <li class="cert"><span class="cert__date mono">09.2024</span><span class="cert__name">Fundamentals of Deep Learning</span><span class="cert__org mono">NVIDIA</span></li>
+              <li class="cert"><span class="cert__date mono">07.2023</span><span class="cert__name">Technician Programmer INF.03 / INF.04</span><span class="cert__org mono">ZSE Białystok</span></li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- stage 06 · sink -->
+        <section id="contact" class="stage stage--sink" data-accent="gold">
+          <header class="stage__head reveal">
+            <span class="stage__node" aria-hidden="true"></span>
+            <p class="stage__tag mono">stage_06 · sink · write_to_inbox</p>
+          </header>
+          <div class="stage__body reveal">
+            <h2 class="sink__title">
+              <span>LET'S MOVE</span>
+              <span class="sink__gold">SOME DATA.</span>
+            </h2>
+            <p class="sink__blurb">
+              Whether it's an internship, a junior data role, or an interesting
+              problem with a large dataset behind it — my inbox is open.
+            </p>
+            <a class="magnet btn btn--gold btn--big" href="mailto:michalmalinowski29@gmail.com">
+              <span class="magnet__inner">michalmalinowski29@gmail.com</span>
+            </a>
+            <ul class="sink__links mono">
+              <li><a href="tel:+48512250794">+48 512 250 794</a></li>
+              <li><a href="https://github.com/MichalM31252" target="_blank" rel="noopener">github ↗</a></li>
+              <li><a href="https://www.linkedin.com/in/michalmalinowski29/" target="_blank" rel="noopener">linkedin ↗</a></li>
+            </ul>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer class="foot">
+      <div class="foot__inner mono">
+        <span>© 2026 michał malinowski</span>
+        <span class="foot__pipe" aria-hidden="true">bronze → silver → gold</span>
+        <a href="#top">back to source ↑</a>
+      </div>
+    </footer>
+
+    <script src="js/main.js" defer></script>
   </body>
 </html>
