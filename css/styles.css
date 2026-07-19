@@ -10,9 +10,9 @@
   --text: #E9EDF3;
   --muted: #96A0B3;
   --faint: #5F6A7E;
-  --amber: #E5A84B;
-  --amber-dim: #B9821F;
-  --amber-soft: rgba(229,168,75,.12);
+  --accent: #4FD1C5;
+  --accent-dim: #2E9E93;
+  --accent-soft: rgba(79,209,197,.12);
   --steel: #7FA6C9;
   --radius: 10px;
   --font-display: "Bricolage Grotesque",system-ui,sans-serif;
@@ -53,7 +53,7 @@ body {
 }
 
 ::selection {
-  background: var(--amber);
+  background: var(--accent);
   color: #0A0E16;
 }
 
@@ -64,7 +64,7 @@ a {
 
 a:focus-visible,
 button:focus-visible {
-  outline: 2px solid var(--amber);
+  outline: 2px solid var(--accent);
   outline-offset: 3px;
   border-radius: 3px;
 }
@@ -113,7 +113,7 @@ noscript {
 }
 
 .nav-brand .tick {
-  color: var(--amber);
+  color: var(--accent);
 }
 
 .nav-links {
@@ -129,7 +129,7 @@ noscript {
 }
 
 .nav-links a:hover {
-  color: var(--amber);
+  color: var(--accent);
 }
 
 .nav-toggle {
@@ -149,7 +149,7 @@ noscript {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  background: radial-gradient(600px 320px at 82% 18%, rgba(229,168,75,.07), transparent 65%), radial-gradient(520px 300px at 8% 90%, rgba(127,166,201,.05), transparent 65%);
+  background: radial-gradient(600px 320px at 82% 18%, rgba(79,209,197,.07), transparent 65%), radial-gradient(520px 300px at 8% 90%, rgba(127,166,201,.05), transparent 65%);
 }
 
 .hero-grid {
@@ -164,7 +164,7 @@ noscript {
   font-family: var(--font-mono);
   font-size: .8rem;
   letter-spacing: .04em;
-  color: var(--amber);
+  color: var(--accent);
   margin-bottom: 18px;
   display: block;
 }
@@ -216,21 +216,21 @@ h1 .surname {
 }
 
 .btn:hover {
-  border-color: var(--amber);
-  background: var(--amber-soft);
+  border-color: var(--accent);
+  background: var(--accent-soft);
   transform: translateY(-1px);
 }
 
 .btn-primary {
-  background: var(--amber);
-  border-color: var(--amber);
+  background: var(--accent);
+  border-color: var(--accent);
   color: #0A0E16;
   font-weight: 500;
 }
 
 .btn-primary:hover {
-  background: #EFBB68;
-  border-color: #EFBB68;
+  background: #72DED4;
+  border-color: #72DED4;
 }
 
 .btn svg {
@@ -269,7 +269,7 @@ h1 .surname {
 }
 
 .query-bar .dot:first-child {
-  background: rgba(229,168,75,.55);
+  background: rgba(79,209,197,.55);
 }
 
 .query-bar span:last-child {
@@ -285,7 +285,7 @@ h1 .surname {
 }
 
 .query-body .kw {
-  color: var(--amber);
+  color: var(--accent);
 }
 
 .query-body .str {
@@ -296,7 +296,7 @@ h1 .surname {
   display: inline-block;
   width: 8px;
   height: 1.05em;
-  background: var(--amber);
+  background: var(--accent);
   vertical-align: -3px;
   animation: blink 1s step-end infinite;
 }
@@ -350,7 +350,7 @@ h1 .surname {
 }
 
 .result-meta em {
-  color: var(--amber);
+  color: var(--accent);
   font-style: normal;
 }
 
@@ -371,7 +371,7 @@ section {
 .sec-label {
   font-family: var(--font-mono);
   font-size: .82rem;
-  color: var(--amber);
+  color: var(--accent);
   white-space: nowrap;
 }
 
@@ -490,13 +490,13 @@ h2 {
   height: 11px;
   border-radius: 50%;
   background: var(--bg);
-  border: 2px solid var(--amber);
+  border: 2px solid var(--accent);
 }
 
 .t-date {
   font-family: var(--font-mono);
   font-size: .78rem;
-  color: var(--amber);
+  color: var(--accent);
   margin-bottom: 6px;
 }
 
@@ -539,7 +539,7 @@ h2 {
   content: "▸";
   position: absolute;
   left: 0;
-  color: var(--amber-dim);
+  color: var(--accent-dim);
   font-size: .8rem;
   top: 2px;
 }
@@ -580,7 +580,7 @@ h2 {
 }
 
 a.proj:hover {
-  border-color: rgba(229,168,75,.5);
+  border-color: rgba(79,209,197,.5);
   transform: translateY(-3px);
   background: #131a2b;
 }
@@ -609,7 +609,7 @@ a.proj:hover {
 }
 
 a.proj:hover .proj-top svg {
-  color: var(--amber);
+  color: var(--accent);
 }
 
 .proj p {
@@ -652,7 +652,7 @@ a.proj:hover .proj-top svg {
 .panel-title {
   font-family: var(--font-mono);
   font-size: .76rem;
-  color: var(--amber);
+  color: var(--accent);
   letter-spacing: .03em;
 }
 
@@ -664,7 +664,7 @@ a.proj:hover .proj-top svg {
 }
 
 a.panel-link:hover {
-  color: var(--amber);
+  color: var(--accent);
 }
 
 .panel-note {
@@ -732,22 +732,22 @@ a.panel-link:hover {
 
 .cal i.l1,
 .cal-legend i.l1 {
-  background: rgba(229,168,75,.28);
+  background: rgba(79,209,197,.28);
 }
 
 .cal i.l2,
 .cal-legend i.l2 {
-  background: rgba(229,168,75,.5);
+  background: rgba(79,209,197,.5);
 }
 
 .cal i.l3,
 .cal-legend i.l3 {
-  background: rgba(229,168,75,.75);
+  background: rgba(79,209,197,.75);
 }
 
 .cal i.l4,
 .cal-legend i.l4 {
-  background: var(--amber);
+  background: var(--accent);
 }
 
 .cal-caption {
@@ -835,7 +835,7 @@ a.panel-link:hover {
 }
 
 .lc-medium .lc-fill {
-  background: var(--amber);
+  background: #E5A84B;
 }
 
 .lc-hard .lc-fill {
@@ -861,7 +861,7 @@ a.panel-link:hover {
   font-family: var(--font-mono);
   font-size: .76rem;
   font-weight: 500;
-  color: var(--amber);
+  color: var(--accent);
   margin-bottom: 16px;
   letter-spacing: .03em;
 }
@@ -925,7 +925,7 @@ a.panel-link:hover {
 .cert-date {
   font-family: var(--font-mono);
   font-size: .76rem;
-  color: var(--amber);
+  color: var(--accent);
   white-space: nowrap;
   padding-top: 3px;
 }
@@ -957,13 +957,13 @@ a.panel-link:hover {
   font-size: clamp(1.2rem,3.4vw,1.9rem);
   font-weight: 600;
   color: var(--text);
-  border-bottom: 2px solid var(--amber);
+  border-bottom: 2px solid var(--accent);
   padding-bottom: 4px;
   transition: color .2s;
 }
 
 .contact-mail:hover {
-  color: var(--amber);
+  color: var(--accent);
 }
 
 .contact-links {
