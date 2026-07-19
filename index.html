@@ -10,31 +10,344 @@
     />
     <link
       rel="icon"
-      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%230A0E16'/><text x='50' y='68' font-size='52' font-family='monospace' fill='%23E5A84B' text-anchor='middle'>M</text></svg>"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='14' fill='%23F3F4EF'/><rect x='24' y='0' width='3' height='100' fill='%23C2451E'/><text x='60' y='70' font-size='50' font-family='monospace' fill='%23161D18' text-anchor='middle'>M</text></svg>"
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Spectral:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Spline+Sans+Mono:wght@300..700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="css/styles.css" />
-    <script type="importmap">
-      {
-        "imports": {
-          "vue": "https://cdn.jsdelivr.net/npm/vue@3.5.13/dist/vue.esm-browser.prod.js"
-        }
-      }
+    <script>
+      // Apply saved theme before first paint to avoid a flash.
+      // A #dark / #light hash overrides without persisting.
+      (function () {
+        var t = location.hash === "#dark" || location.hash === "#light"
+          ? location.hash.slice(1)
+          : localStorage.getItem("theme");
+        if (t === "dark" || t === "light") document.documentElement.dataset.theme = t;
+      })();
     </script>
   </head>
   <body>
-    <noscript>
-      This site needs JavaScript to render. You can still reach me at
-      <a href="mailto:michalmalinowski29@gmail.com" style="color: #e5a84b">michalmalinowski29@gmail.com</a>.
-    </noscript>
+    <a class="skip-link" href="#record">Skip to content</a>
 
-    <div id="app"></div>
+    <header class="site-head">
+      <div class="site-head__inner">
+        <a class="brand" href="#top">
+          <span class="brand__name">M.&hairsp;Malinowski</span>
+          <span class="brand__sep" aria-hidden="true">·</span>
+          <span class="brand__role">data&nbsp;scientist</span>
+        </a>
+        <nav class="site-nav" aria-label="Sections">
+          <a href="#record">Record</a>
+          <a href="#experience">Experience</a>
+          <a href="#projects">Projects</a>
+          <a href="#skills">Skills</a>
+          <a href="#education">Education</a>
+        </nav>
+        <div class="site-head__end">
+          <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle color theme">
+            <svg viewBox="0 0 16 16" width="15" height="15" aria-hidden="true">
+              <circle cx="8" cy="8" r="6.25" fill="none" stroke="currentColor" stroke-width="1.5" />
+              <path d="M8 1.75 A6.25 6.25 0 0 1 8 14.25 Z" fill="currentColor" />
+            </svg>
+          </button>
+          <a class="head-cta" href="#contact">Contact</a>
+        </div>
+      </div>
+    </header>
 
-    <script type="module" src="js/app.js"></script>
+    <main id="top">
+      <!-- ================= HERO ================= -->
+      <section class="hero">
+        <p class="hero__eyebrow reveal">
+          <span class="doc-ref">curriculum&nbsp;vitae</span>
+          <span class="doc-ref__meta">rev. 2026 · Gdańsk, PL · 54.35°N&nbsp;18.65°E</span>
+        </p>
+
+        <h1 class="hero__name">
+          <span class="hero__line"><span class="hero__word">Michał</span></span>
+          <span class="hero__line"><span class="hero__word">Malinowski</span></span>
+        </h1>
+
+        <div class="hero__meta reveal">
+          <p class="hero__role">
+            <span class="live-dot" aria-hidden="true"></span>
+            Data Scientist at <a href="https://www.ergohestia.pl" target="_blank" rel="noopener">Ergo&nbsp;Hestia</a>
+            — open to opportunities
+          </p>
+          <p class="hero__lede">
+            I turn raw, messy data into decisions — building
+            <strong>pipelines, models, and BI&nbsp;dashboards</strong> for one of
+            Poland's largest insurers while completing a Data&nbsp;Engineering
+            degree at Gdańsk University of Technology.
+          </p>
+          <div class="hero__actions">
+            <a class="btn btn--primary" href="#contact">Get in touch</a>
+            <a class="btn" href="https://github.com/MichalM31252" target="_blank" rel="noopener">GitHub&nbsp;↗</a>
+          </div>
+        </div>
+
+        <figure class="hero__figure reveal">
+          <div class="chart-frame">
+            <canvas id="trajectory" aria-label="Career trajectory chart, 2019 to now"></canvas>
+          </div>
+          <figcaption class="figcap">
+            <span class="figcap__label">fig. 01</span>
+            Trajectory, 2019 → present. Cumulative scope of work; annotations mark milestones.
+          </figcaption>
+        </figure>
+      </section>
+
+      <!-- ================= ABOUT ================= -->
+      <section id="record" class="section reveal">
+        <div class="section__margin">
+          <span class="doc-ref">abstract</span>
+        </div>
+        <div class="section__body">
+          <h2 class="section__title">A data engineer's rigor,<br />an analyst's curiosity.</h2>
+          <div class="section__cols">
+            <div class="prose">
+              <p>
+                I'm a 6th-semester <strong>Data Engineering</strong> student at
+                Gdańsk University of Technology and a Data Scientist at
+                <strong>Ergo Hestia</strong>, one of Poland's largest insurers. My
+                work sits where engineering meets analysis: designing and
+                optimizing databases, processing large datasets, and turning them
+                into models and dashboards that people actually use.
+              </p>
+              <p>
+                I'm particularly interested in <strong>data science, database
+                design optimization, and Business Intelligence</strong>. I learn
+                quickly, enjoy working in a team, carry out my duties diligently —
+                and I'm always eager to take on a new challenge.
+              </p>
+            </div>
+            <div class="record-card">
+              <p class="record-card__head">Record card</p>
+              <dl class="ledger">
+                <div class="ledger__row"><dt>Location</dt><span class="leader" aria-hidden="true"></span><dd>Gdańsk, Poland</dd></div>
+                <div class="ledger__row"><dt>Currently at</dt><span class="leader" aria-hidden="true"></span><dd>Ergo Hestia</dd></div>
+                <div class="ledger__row"><dt>Studying</dt><span class="leader" aria-hidden="true"></span><dd>Data Engineering, GUT</dd></div>
+                <div class="ledger__row"><dt>Core stack</dt><span class="leader" aria-hidden="true"></span><dd>Python · SQL · Power BI</dd></div>
+                <div class="ledger__row"><dt>Status</dt><span class="leader" aria-hidden="true"></span><dd class="is-live">Open to opportunities</dd></div>
+              </dl>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= EXPERIENCE ================= -->
+      <section id="experience" class="section reveal">
+        <div class="section__margin">
+          <span class="doc-ref">table 01</span>
+          <span class="doc-ref__meta">employment</span>
+        </div>
+        <div class="section__body">
+          <h2 class="section__title">Where I've worked</h2>
+
+          <article class="entry">
+            <div class="entry__when">
+              <span class="entry__date">06.2025 — present</span>
+              <span class="entry__where">Gdańsk</span>
+            </div>
+            <div class="entry__what">
+              <h3 class="entry__role">
+                Data Scientist <span class="entry__note">(internship)</span> ·
+                <a href="https://www.ergohestia.pl" target="_blank" rel="noopener">Ergo Hestia</a>
+              </h3>
+              <ul class="entry__bullets">
+                <li>Apply advanced Python and its data-analysis ecosystem to large, real-world insurance datasets</li>
+                <li>Build and evaluate machine learning models using industry-standard modelling algorithms</li>
+                <li>Develop data workflows with Databricks, Azure Data Factory, and GitHub</li>
+                <li>Create reports and dashboards in Power BI and write production SQL queries</li>
+                <li>Work with Microsoft Copilot Studio and collaborate through Jira and the Atlassian suite</li>
+              </ul>
+              <ul class="tags">
+                <li>Python</li><li>Machine Learning</li><li>Databricks</li>
+                <li>Azure Data Factory</li><li>Power BI</li><li>SQL</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- ================= PROJECTS ================= -->
+      <section id="projects" class="section reveal">
+        <div class="section__margin">
+          <span class="doc-ref">table 02</span>
+          <span class="doc-ref__meta">selected work</span>
+        </div>
+        <div class="section__body">
+          <h2 class="section__title">Selected work</h2>
+
+          <div class="worklist">
+            <a class="workrow" href="https://github.com/MichalM31252/School-Data-Warehouse" target="_blank" rel="noopener">
+              <span class="workrow__name">School Data Warehouse</span>
+              <span class="workrow__desc">A functional data warehouse designed end-to-end for the needs of a school — from schema design to loading and querying, built in T-SQL.</span>
+              <span class="workrow__tags">T-SQL · Data Warehousing · ETL</span>
+              <span class="workrow__go" aria-hidden="true">↗</span>
+            </a>
+            <a class="workrow" href="https://github.com/MichalM31252/Polish-Speech-Recognizer" target="_blank" rel="noopener">
+              <span class="workrow__name">Polish Speech Recognizer</span>
+              <span class="workrow__desc">An artificial neural network trained to recognize spoken Polish sentences — deep learning applied to a language with famously hard phonetics.</span>
+              <span class="workrow__tags">Python · Neural Networks · Speech</span>
+              <span class="workrow__go" aria-hidden="true">↗</span>
+            </a>
+            <a class="workrow" href="https://github.com/MichalM31252/Counter-Strike-Inventory-Advertiser" target="_blank" rel="noopener">
+              <span class="workrow__name">Steam Inventory Advertiser</span>
+              <span class="workrow__desc">An automated, configurable tool that promotes Counter-Strike items across Reddit and Steam — multi-platform scraping and posting at scale.</span>
+              <span class="workrow__tags">Python · Selenium · MySQL</span>
+              <span class="workrow__go" aria-hidden="true">↗</span>
+            </a>
+            <div class="workrow workrow--static">
+              <span class="workrow__name">Red Cross Document Scanner</span>
+              <span class="workrow__desc">A document scanner built for the Polish Pomeranian Red Cross, digitizing paperwork for a nonprofit that runs on volunteers' time.</span>
+              <span class="workrow__tags">Python · OCR · Pro bono</span>
+            </div>
+            <a class="workrow" href="https://github.com/MichalM31252/Wulkanizacja-Website" target="_blank" rel="noopener">
+              <span class="workrow__name">Wulkanizacja Website</span>
+              <span class="workrow__desc">A fully responsive website built from scratch for a paying client — my first freelance project, delivered polished and on time.</span>
+              <span class="workrow__tags">HTML/CSS/JS · Bulma · Freelance</span>
+              <span class="workrow__go" aria-hidden="true">↗</span>
+            </a>
+          </div>
+          <p class="worklist__more">
+            + more experiments, coursework, and tools —
+            <a href="https://github.com/MichalM31252" target="_blank" rel="noopener">all in the open on GitHub</a>
+          </p>
+        </div>
+      </section>
+
+      <!-- ================= ACTIVITY ================= -->
+      <section id="activity" class="section reveal" hidden>
+        <div class="section__margin">
+          <span class="doc-ref">fig. 02</span>
+          <span class="doc-ref__meta">contribution density</span>
+        </div>
+        <div class="section__body">
+          <h2 class="section__title">Always shipping</h2>
+          <figure class="heat-figure">
+            <div class="heat-scroll">
+              <div id="heatmap" class="heatmap" role="img" aria-label="GitHub contribution calendar, last 12 months"></div>
+            </div>
+            <figcaption class="figcap">
+              <span class="figcap__label">fig. 02</span>
+              <span id="heat-caption">GitHub contributions, trailing 12 months.</span>
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <!-- ================= SKILLS ================= -->
+      <section id="skills" class="section reveal">
+        <div class="section__margin">
+          <span class="doc-ref">table 03</span>
+          <span class="doc-ref__meta">technical inventory</span>
+        </div>
+        <div class="section__body">
+          <h2 class="section__title">What I work with</h2>
+          <div class="skills-grid">
+            <div class="skill-group">
+              <h3 class="skill-group__title">Languages &amp; libraries</h3>
+              <ul><li>Python</li><li>Pandas</li><li>Spark</li><li>SQL / PL/SQL / T-SQL</li></ul>
+            </div>
+            <div class="skill-group">
+              <h3 class="skill-group__title">Data platform</h3>
+              <ul><li>Databricks</li><li>Azure Data Factory</li><li>Databases &amp; warehouses</li><li>Big Data processing</li></ul>
+            </div>
+            <div class="skill-group">
+              <h3 class="skill-group__title">Analytics &amp; ML</h3>
+              <ul><li>Machine Learning</li><li>Power BI</li><li>Data visualization</li><li>Exploratory analysis</li></ul>
+            </div>
+            <div class="skill-group">
+              <h3 class="skill-group__title">Ways of working</h3>
+              <ul><li>Git &amp; GitHub</li><li>Jira / Atlassian</li><li>Clear communication</li><li>Independent &amp; team work</li></ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= EDUCATION ================= -->
+      <section id="education" class="section reveal">
+        <div class="section__margin">
+          <span class="doc-ref">table 04</span>
+          <span class="doc-ref__meta">education &amp; certification</span>
+        </div>
+        <div class="section__body">
+          <h2 class="section__title">Education &amp; certificates</h2>
+
+          <article class="entry">
+            <div class="entry__when">
+              <span class="entry__date">2023 — present</span>
+            </div>
+            <div class="entry__what">
+              <h3 class="entry__role">BSc, Data Engineering · Gdańsk University of Technology</h3>
+              <ul class="entry__bullets">
+                <li>Exploratory analysis of financial data</li>
+                <li>Design and optimization of financial data analysis scripts in PL/SQL</li>
+                <li>Big Data processing and integration of data from various sources</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="entry">
+            <div class="entry__when">
+              <span class="entry__date">2019 — 2023</span>
+            </div>
+            <div class="entry__what">
+              <h3 class="entry__role">Technician Programmer · Technical Secondary School of Electrical Engineering, Białystok</h3>
+              <ul class="entry__bullets">
+                <li>Creating and administering web applications</li>
+                <li>Creating and administering databases</li>
+              </ul>
+            </div>
+          </article>
+
+          <div class="certs">
+            <p class="certs__head">Certificates on file</p>
+            <dl class="ledger">
+              <div class="ledger__row"><dt>Big Data with PySpark</dt><span class="leader" aria-hidden="true"></span><dd><span class="cert-org">DataCamp</span> 06.2026</dd></div>
+              <div class="ledger__row"><dt>Data Analyst in Power BI</dt><span class="leader" aria-hidden="true"></span><dd><span class="cert-org">DataCamp</span> 03.2026</dd></div>
+              <div class="ledger__row"><dt>Databricks Fundamentals</dt><span class="leader" aria-hidden="true"></span><dd><span class="cert-org">Databricks</span> 01.2025</dd></div>
+              <div class="ledger__row"><dt>Fundamentals of Deep Learning</dt><span class="leader" aria-hidden="true"></span><dd><span class="cert-org">NVIDIA</span> 09.2024</dd></div>
+              <div class="ledger__row"><dt>Technician Programmer INF.03 / INF.04</dt><span class="leader" aria-hidden="true"></span><dd><span class="cert-org">ZSE Białystok</span> 07.2023</dd></div>
+            </dl>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= CONTACT ================= -->
+      <section id="contact" class="section section--contact reveal">
+        <div class="section__margin">
+          <span class="doc-ref">correspondence</span>
+        </div>
+        <div class="section__body">
+          <h2 class="section__title section__title--big">Let's talk data.</h2>
+          <p class="contact__blurb">
+            Whether it's an internship, a junior data role, or an interesting
+            problem with a large dataset behind it — my inbox is open.
+          </p>
+          <a class="contact__mail" href="mailto:michalmalinowski29@gmail.com">michalmalinowski29@gmail.com</a>
+          <dl class="ledger ledger--contact">
+            <div class="ledger__row"><dt>Phone</dt><span class="leader" aria-hidden="true"></span><dd><a href="tel:+48512250794">+48 512 250 794</a></dd></div>
+            <div class="ledger__row"><dt>GitHub</dt><span class="leader" aria-hidden="true"></span><dd><a href="https://github.com/MichalM31252" target="_blank" rel="noopener">github.com/MichalM31252</a></dd></div>
+            <div class="ledger__row"><dt>LinkedIn</dt><span class="leader" aria-hidden="true"></span><dd><a href="https://www.linkedin.com/in/michalmalinowski29/" target="_blank" rel="noopener">in/michalmalinowski29</a></dd></div>
+          </dl>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-foot">
+      <div class="site-foot__inner">
+        <span>© 2026 Michał Malinowski</span>
+        <span class="site-foot__note">set in Archivo, Spectral &amp; Spline Sans Mono · no framework, no build step</span>
+        <a href="#top">back to top ↑</a>
+      </div>
+    </footer>
+
+    <script src="js/main.js" defer></script>
   </body>
 </html>
