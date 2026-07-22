@@ -21,6 +21,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
 
     <!-- Load stylesheets without blocking first paint. The page has no above-the-fold
          HTML (content is rendered by Vue), so applying CSS a moment later is safe, and
@@ -51,6 +52,33 @@
         }
       }
     </script>
+
+    <!-- Flatten the ES-module waterfall: without these hints the browser discovers
+         each module only after parsing its importer (app.js → App.js → sections →
+         panels), a chain of round trips. Preloading fetches the whole graph in
+         parallel from first paint. Keep this list in sync when adding modules. -->
+    <link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/vue@3.5.13/dist/vue.esm-browser.prod.js" crossorigin />
+    <link rel="modulepreload" href="js/data.js" />
+    <link rel="modulepreload" href="js/reveal.js" />
+    <link rel="modulepreload" href="js/icons.js" />
+    <link rel="modulepreload" href="js/lazy.js" />
+    <link rel="modulepreload" href="js/components/App.js" />
+    <link rel="modulepreload" href="js/components/SiteNav.js" />
+    <link rel="modulepreload" href="js/components/HeroSection.js" />
+    <link rel="modulepreload" href="js/components/QueryCard.js" />
+    <link rel="modulepreload" href="js/components/AboutSection.js" />
+    <link rel="modulepreload" href="js/components/ExperienceSection.js" />
+    <link rel="modulepreload" href="js/components/ProjectsSection.js" />
+    <link rel="modulepreload" href="js/components/ActivitySection.js" />
+    <link rel="modulepreload" href="js/components/SkillsSection.js" />
+    <link rel="modulepreload" href="js/components/EducationSection.js" />
+    <link rel="modulepreload" href="js/components/ContactSection.js" />
+    <link rel="modulepreload" href="js/components/SiteFooter.js" />
+    <link rel="modulepreload" href="js/components/PageSection.js" />
+    <link rel="modulepreload" href="js/components/TimelineItem.js" />
+    <link rel="modulepreload" href="js/components/TagList.js" />
+    <link rel="modulepreload" href="js/components/GithubPanel.js" />
+    <link rel="modulepreload" href="js/components/LeetcodePanel.js" />
   </head>
   <body>
     <noscript>

@@ -1,5 +1,7 @@
 /* Live LeetCode panel: solved-problem stats from community APIs,
    tried in order, with a graceful fallback message. */
+import { onVisible } from "../lazy.js";
+
 const row = (label, cls, solved, total) => ({ label, cls, solved, total });
 
 const sources = (user) => [
@@ -51,36 +53,41 @@ export default {
         : "problems solved on LeetCode";
     },
   },
-  async mounted() {
+  mounted() {
     if (!this.user) return;
-    for (const source of sources(this.user)) {
-      try {
-        const res = await fetch(source.url);
-        if (!res.ok) continue;
-        const stats = source.map(await res.json());
-        if (!stats) continue;
-        this.stats = stats;
-        /* Let the bars render at width 0 first so the fill animates in. */
-        requestAnimationFrame(() =>
-          requestAnimationFrame(() => {
-            this.filled = true;
-          }),
-        );
-        return;
-      } catch {
-        /* try the next source */
-      }
-    }
-    this.failed = true;
+    /* Defer the network calls until the panel nears the viewport — it sits well
+       below the fold, so keeping its requests off the initial critical path. */
+    onVisible(this.$refs.root, () => this.load());
   },
   methods: {
+    async load() {
+      for (const source of sources(this.user)) {
+        try {
+          const res = await fetch(source.url);
+          if (!res.ok) continue;
+          const stats = source.map(await res.json());
+          if (!stats) continue;
+          this.stats = stats;
+          /* Let the bars render at width 0 first so the fill animates in. */
+          requestAnimationFrame(() =>
+            requestAnimationFrame(() => {
+              this.filled = true;
+            }),
+          );
+          return;
+        } catch {
+          /* try the next source */
+        }
+      }
+      this.failed = true;
+    },
     percent(r) {
       const total = r.total || this.stats.total;
       return total ? Math.round((r.solved / total) * 100) : 0;
     },
   },
   template: `
-    <div class="panel" v-reveal>
+    <div class="panel" v-reveal ref="root">
       <div class="panel-head">
         <span class="panel-title">leetcode</span>
         <a v-if="user" class="panel-link" :href="profileUrl" target="_blank" rel="noopener">@{{ user }} ↗</a>

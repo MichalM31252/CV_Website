@@ -1,4 +1,6 @@
 /* Live GitHub panel: profile chips + a weekday-aligned contribution calendar. */
+import { onVisible } from "../lazy.js";
+
 const CELL_PX = 10;
 const GAP_PX = 3;
 const WEEK_PX = CELL_PX + GAP_PX;
@@ -31,8 +33,12 @@ export default {
        it re-fits when the async stylesheet finally lands (or the window resizes). */
     this.observer = new ResizeObserver(([entry]) => this.fit(entry.contentRect.width));
     this.observer.observe(this.$refs.scroller);
-    this.loadProfile();
-    this.loadCalendar();
+    /* Defer the network calls until the panel nears the viewport — it sits well
+       below the fold, so keeping its requests off the initial critical path. */
+    onVisible(this.$refs.scroller, () => {
+      this.loadProfile();
+      this.loadCalendar();
+    });
   },
   beforeUnmount() {
     this.observer.disconnect();
