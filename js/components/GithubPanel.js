@@ -16,7 +16,7 @@ export default {
       total: 0,
       weeks: 1,
       failed: false,
-      resizeTimer: null,
+      observer: null,
     };
   },
   computed: {
@@ -26,13 +26,16 @@ export default {
     },
   },
   mounted() {
-    this.fit();
-    window.addEventListener("resize", this.onResize);
+    /* ResizeObserver reads the width off the browser's own layout pass, so it
+       avoids the forced reflow a synchronous clientWidth read would cause, and
+       it re-fits when the async stylesheet finally lands (or the window resizes). */
+    this.observer = new ResizeObserver(([entry]) => this.fit(entry.contentRect.width));
+    this.observer.observe(this.$refs.scroller);
     this.loadProfile();
     this.loadCalendar();
   },
   beforeUnmount() {
-    window.removeEventListener("resize", this.onResize);
+    this.observer.disconnect();
   },
   methods: {
     async loadProfile() {
@@ -65,13 +68,8 @@ export default {
         this.failed = true;
       }
     },
-    fit() {
-      const available = this.$refs.scroller.clientWidth;
+    fit(available) {
       this.weeks = Math.max(1, Math.floor((available + GAP_PX) / WEEK_PX));
-    },
-    onResize() {
-      clearTimeout(this.resizeTimer);
-      this.resizeTimer = setTimeout(this.fit, 150);
     },
     tooltip(cell) {
       return `${cell.date}: ${cell.count} contribution${cell.count === 1 ? "" : "s"}`;
