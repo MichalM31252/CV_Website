@@ -1,0 +1,5 @@
+# Claude Code local config, skills, and worktrees — not part of the site
+.claude/
+
+# Dependencies
+node_modules/
